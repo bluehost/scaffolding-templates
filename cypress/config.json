@@ -1,0 +1,20 @@
+{
+  "directives": [
+    {
+      "action": "runCommand",
+      "command": "npm install cypress"
+    },
+    {
+      "action": "copy",
+      "from": "cypress.json",
+      "to": "cypress.json",
+      "relativeTo": "projectRoot"
+    },
+    {
+      "action": "copy",
+      "from": "tests",
+      "to": ".",
+      "relativeTo": "projectRoot"
+    }
+  ]
+}
