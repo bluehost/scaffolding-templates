@@ -1,0 +1,14 @@
+{
+  "directives": [
+    {
+      "action": "copy",
+      "from": ".wp-env.json",
+      "to": ".wp-env.json",
+      "relativeTo": "projectRoot"
+    },
+    {
+      "action": "runCommand",
+      "command": "npm install --prefix={{ project_root }} --save-dev @wordpress/env"
+    }
+  ]
+}
