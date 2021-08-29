@@ -1,0 +1,60 @@
+{
+  "directives": [
+    {
+      "action": "runCommand",
+      "command": "wp {{ base_command }} init"
+    },
+    {
+      "action": "copy",
+      "from": "composer.json",
+      "to": "composer.json",
+      "relativeTo": "projectRoot"
+    },
+    {
+      "action": "runCommand",
+      "command": "composer install -d {{ project_root }}"
+    },
+    {
+      "action": "copy",
+      "from": "package.json",
+      "to": "package.json",
+      "relativeTo": "projectRoot"
+    },
+    {
+      "action": "runCommand",
+      "command": "npm install --prefix={{ project_root }}"
+    },
+    {
+      "action": "runCommand",
+      "command": "wp {{ base_command }} make license/{{ license }}"
+    },
+    {
+      "action": "runCommand",
+      "command": "wp {{ base_command }} make wp-env"
+    },
+    {
+      "action": "runCommand",
+      "command": "wp {{ base_command }} make cypress"
+    },
+    {
+      "action": "runCommand",
+      "command": "wp {{ base_command }} make phpcs"
+    },
+    {
+      "action": "runCommand",
+      "command": "wp {{ base_command }} make wp-i18n"
+    },
+    {
+      "action": "runCommand",
+      "command": "wp {{ base_command }} make github-actions/deploy-github"
+    },
+    {
+      "action": "runCommand",
+      "command": "wp {{ base_command }} make github-actions/lint-yml"
+    },
+    {
+      "action": "runCommand",
+      "command": "wp {{ base_command }} make github-actions/tests"
+    }
+  ]
+}
