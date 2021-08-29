@@ -1,0 +1,31 @@
+{
+  "prompts": [
+    {
+      "message": "What is the vendor name?",
+      "name": "package.vendor",
+      "type": "input"
+    },
+    {
+      "message": "What is the package name?",
+      "name": "package.name",
+      "type": "input"
+    }
+  ],
+  "directives": [
+    {
+      "action": "runCommand",
+      "command": "wp {{ base_command }} make github-actions/wp-i18n"
+    },
+    {
+      "action": "runCommand",
+      "command": "composer config -d {{ project_root }} scripts.i18n 'vendor/bin/wp i18n make-pot . ./languages/{{ package.name }}.pot --headers='{\"Report-Msgid-Bugs-To\":\"https://github.com/{{ package.vendor }}/{{ package.name }}/issues\",\"POT-Creation-Date\":null}' --exclude=assets,storybook,tests'"
+    },
+    {
+      "action": "setJSONValue",
+      "file": "composer.json",
+      "path": "{{ project_root }}",
+      "key": "scripts-descriptions.i18n",
+      "value": "Generate a .pot file for translation."
+    }
+  ]
+}
