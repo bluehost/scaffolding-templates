@@ -1,0 +1,59 @@
+{
+  "directives": [
+    {
+      "action": "copy",
+      "from": "phpunit.xml",
+      "to": "phpunit.xml",
+      "relativeTo": "projectRoot"
+    },
+    {
+      "action": "copy",
+      "from": "tests",
+      "to": ".",
+      "relativeTo": "projectRoot"
+    },
+    {
+      "action": "runCommand",
+      "command": "composer require -d {{ project_root }} --dev wp-phpunit/wp-phpunit"
+    },
+    {
+      "action": "runCommand",
+      "command": "wp {{ base_command }} make wp-env"
+    },
+    {
+      "action": "setJSONValue",
+      "file": ".wp-env.json",
+      "path": "{{ project_root }}",
+      "key": "env.tests.config.WP_TESTS_DOMAIN",
+      "value": "localhost:8881"
+    },
+    {
+      "action": "setJSONValue",
+      "file": ".wp-env.json",
+      "path": "{{ project_root }}",
+      "key": "env.tests.config.WP_TESTS_EMAIL",
+      "value": "{{ author.email }}"
+    },
+    {
+      "action": "setJSONValue",
+      "file": ".wp-env.json",
+      "path": "{{ project_root }}",
+      "key": "env.tests.config.WP_TESTS_TITLE",
+      "value": "{{ name }}"
+    },
+    {
+      "action": "setJSONValue",
+      "file": ".wp-env.json",
+      "path": "{{ project_root }}",
+      "key": "env.tests.config.WP_TESTS_BINARY",
+      "value": "php"
+    },
+    {
+      "action": "setJSONValue",
+      "file": "package.json",
+      "path": "{{ project_root }}",
+      "key": "scripts.tests:unit",
+      "value": "npx wp-env run phpunit 'phpunit -c /var/www/html/wp-content/plugins/forge-test/phpunit.xml --verbose'"
+    }
+  ]
+}
