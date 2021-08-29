@@ -1,7 +1,7 @@
 {
   "name": "{{ package.name }}",
   "description": "{{ description }}",
-  "license": "{{ license }}",
+  "license": "{{ license.slug }}",
   "private": true,
   "author": {
     "name": "{{ author.name }}",

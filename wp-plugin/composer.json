@@ -2,7 +2,7 @@
   "name": "{{ package.vendor }}/{{ package.name }}",
   "description": "{{ description }}",
   "type": "wordpress-plugin",
-  "license": "{{ license }}",
+  "license": "{{ license.slug }}",
   "authors": [
     {
       "name": "{{ author.name }}",

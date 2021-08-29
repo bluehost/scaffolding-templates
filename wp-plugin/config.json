@@ -6,6 +6,12 @@
     },
     {
       "action": "copy",
+      "from": "plugin.php",
+      "to": "./{{ package.name }}.php",
+      "relativeTo": "projectRoot"
+    },
+    {
+      "action": "copy",
       "from": "composer.json",
       "to": "composer.json",
       "relativeTo": "projectRoot"
@@ -26,7 +32,7 @@
     },
     {
       "action": "runCommand",
-      "command": "wp {{ base_command }} make license/{{ license }}"
+      "command": "wp {{ base_command }} make license/{{ license.slug }}"
     },
     {
       "action": "runCommand",
@@ -35,6 +41,10 @@
     {
       "action": "runCommand",
       "command": "wp {{ base_command }} make cypress"
+    },
+    {
+      "action": "runCommand",
+      "command": "wp {{ base_command }} make phpunit"
     },
     {
       "action": "runCommand",
