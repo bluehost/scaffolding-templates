@@ -1,0 +1,21 @@
+{
+  "directives": [
+    {
+      "action": "copy",
+      "from": "LICENSE.md",
+      "to": "LICENSE.md",
+      "relativeTo": "projectRoot"
+    },
+    {
+      "action": "runCommand",
+      "command": "composer config -d {{ project_root }} license 'GPL-2.0-or-later'"
+    },
+    {
+      "action": "setJSONValue",
+      "file": "package.json",
+      "path": "{{ project_root }}",
+      "key": "license",
+      "value": "GPL-2.0-or-later"
+    }
+  ]
+}
