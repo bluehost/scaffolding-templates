@@ -1,0 +1,10 @@
+{
+  "directives": [
+    {
+      "action": "copy",
+      "from": "wp-i18n.yml",
+      "to": ".github/workflows/wp-i18n.yml",
+      "relativeTo": "projectRoot"
+    }
+  ]
+}
