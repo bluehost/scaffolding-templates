@@ -1,0 +1,44 @@
+{
+  "directives": [
+    {
+      "action": "runCommand",
+      "command": "composer config -d {{ project_root }} repositories.bluehost-satis composer https://bluehost.github.io/satis/"
+    },
+    {
+      "action": "runCommand",
+      "command": "composer require -d {{ project_root }} --dev bluehost/wp-php-standards"
+    },
+    {
+      "action": "runCommand",
+      "command": "composer config -d {{ project_root }} scripts.fix 'vendor/bin/phpcbf --standard=phpcs.xml .'"
+    },
+    {
+      "action": "runCommand",
+      "command": "composer config -d {{ project_root }} scripts.lint 'vendor/bin/phpcs --standard=phpcs.xml -s .'"
+    },
+    {
+      "action": "setJSONValue",
+      "file": "composer.json",
+      "path": "{{ project_root }}",
+      "key": "scripts-descriptions.fix",
+      "value": "Automatically fix coding standards issues where possible."
+    },
+    {
+      "action": "setJSONValue",
+      "file": "composer.json",
+      "path": "{{ project_root }}",
+      "key": "scripts-descriptions.lint",
+      "value": "Check files against coding standards."
+    },
+    {
+      "action": "copy",
+      "from": "phpcs.xml",
+      "to": "phpcs.xml",
+      "relativeTo": "projectRoot"
+    },
+    {
+      "action": "runCommand",
+      "command": "wp {{ base_command }} make github-actions/lint-php"
+    }
+  ]
+}
