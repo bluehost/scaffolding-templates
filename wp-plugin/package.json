@@ -6,8 +6,5 @@
   "author": {
     "name": "{{ author.name }}",
     "email": "{{ author.email }}"
-  },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
   }
 }

@@ -1,6 +1,14 @@
 {
   "directives": [
     {
+      "action": "commandExists",
+      "command": "npm"
+    },
+    {
+      "action": "commandExists",
+      "command": "composer"
+    },
+    {
       "action": "runCommand",
       "command": "wp {{ base_command }} init"
     },

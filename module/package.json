@@ -1,0 +1,10 @@
+{
+  "name": "{{ module.name | dashCase }}",
+  "description": "{{ module.description }}",
+  "license": "GPL-2.0-or-later",
+  "private": true,
+  "author": {
+    "name": "{{ author.name }}",
+    "email": "{{ author.email }}"
+  }
+}

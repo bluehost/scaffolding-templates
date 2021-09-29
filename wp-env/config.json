@@ -1,6 +1,10 @@
 {
   "directives": [
     {
+      "action": "commandExists",
+      "command": "npm"
+    },
+    {
       "action": "copy",
       "from": ".wp-env.json",
       "to": ".wp-env.json",

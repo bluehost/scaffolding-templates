@@ -1,6 +1,10 @@
 {
   "directives": [
     {
+      "action": "commandExists",
+      "command": "composer"
+    },
+    {
       "action": "runCommand",
       "command": "composer config -d {{ project_root }} repositories.bluehost-satis composer https://bluehost.github.io/satis/"
     },

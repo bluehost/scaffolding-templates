@@ -1,6 +1,14 @@
 {
   "directives": [
     {
+      "action": "commandExists",
+      "command": "npm"
+    },
+    {
+      "action": "commandExists",
+      "command": "composer"
+    },
+    {
       "action": "copy",
       "from": "phpunit.xml",
       "to": "phpunit.xml",
@@ -52,8 +60,8 @@
       "action": "setJSONValue",
       "file": "package.json",
       "path": "{{ project_root }}",
-      "key": "scripts.tests:unit",
-      "value": "npx wp-env run phpunit 'phpunit -c /var/www/html/wp-content/plugins/forge-test/phpunit.xml --verbose'"
+      "key": "scripts.test:unit",
+      "value": "npx wp-env run phpunit 'phpunit -c /var/www/html/wp-content/plugins/{{ package.name }}/phpunit.xml --verbose'"
     }
   ]
 }

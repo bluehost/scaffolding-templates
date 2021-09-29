@@ -1,8 +1,12 @@
 {
   "directives": [
     {
+      "action": "commandExists",
+      "command": "npm"
+    },
+    {
       "action": "runCommand",
-      "command": "npm install cypress"
+      "command": "npm install --save-dev cypress cypress-axe @testing-library/cypress"
     },
     {
       "action": "copy",
@@ -12,9 +16,22 @@
     },
     {
       "action": "copy",
-      "from": "tests",
+      "from": "tests/cypress",
       "to": ".",
       "relativeTo": "projectRoot"
+    },
+    {
+      "action": "setJSONValue",
+      "file": "package.json",
+      "path": "{{ project_root }}",
+      "key": "scripts.test:e2e",
+      "value": "npx cypress run",
+      "conditions": [
+        {
+          "condition": "filePresent",
+          "file": "{{ project_root }}/package.json"
+        }
+      ]
     }
   ]
 }

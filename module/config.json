@@ -1,0 +1,78 @@
+{
+  "prompts": [
+    {
+      "message": "What is the module name?",
+      "name": "module.name"
+    },
+    {
+      "message": "What is the module description?",
+      "name": "module.description"
+    },
+    {
+      "message": "What is the vendor name?",
+      "name": "package.vendor"
+    },
+    {
+      "message": "Should user's be able to toggle the module on and off?",
+      "name": "module.isHidden",
+      "type": "boolean"
+    },
+    {
+      "message": "Should the module be active by default?",
+      "name": "module.isActive",
+      "type": "boolean"
+    },
+    {
+      "message": "What is the author name?",
+      "name": "author.name"
+    },
+    {
+      "message": "What is the author email?",
+      "name": "author.email"
+    }
+  ],
+  "directives": [
+    {
+      "action": "copy",
+      "from": "bootstrap.php",
+      "to": "{{ module.name | kebabCase }}/bootstrap.php",
+      "relativeTo": "projectRoot"
+    },
+    {
+      "action": "copy",
+      "from": "composer.json",
+      "to": "{{ module.name | kebabCase }}/composer.json",
+      "relativeTo": "projectRoot"
+    },
+    {
+      "action": "copy",
+      "from": "README.md",
+      "to": "{{ module.name | kebabCase }}/README.md",
+      "relativeTo": "projectRoot"
+    },
+    {
+      "action": "copy",
+      "from": "module.php",
+      "to": "{{ module.name | kebabCase }}/{{ module.name | kebabCase }}.php",
+      "relativeTo": "projectRoot"
+    },
+    {
+      "action": "copy",
+      "from": "package.json",
+      "to": "{{ module.name | kebabCase }}/package.json",
+      "relativeTo": "projectRoot"
+    },
+    {
+      "action": "runCommand",
+      "command": "wp {{ base_command }} make cypress --project-root={{ project_root }}/{{ module.name | kebabCase }}"
+    },
+    {
+      "action": "runCommand",
+      "command": "wp {{ base_command }} make phpunit --project-root={{ project_root }}/{{ module.name | kebabCase }}"
+    },
+    {
+      "action": "runCommand",
+      "command": "wp {{ base_command }} make github-actions/satis-update --project-root={{ project_root }}/{{ module.name | kebabCase }}"
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "name": "{{ package.vendor }}/newfold-wp-module-{{ module.name | kebabCase }}",
+  "description": "{{ module.description }}",
+  "type": "library",
+  "license": "GPL-2.0-or-later",
+  "authors": [
+    {
+      "name": "{{ author.name }}",
+      "email": "{{ author.email }}"
+    }
+  ],
+  "autoload": {
+    "files": [
+      "bootstrap.php"
+    ]
+  }
+}

@@ -1,6 +1,10 @@
 {
   "directives": [
     {
+      "action": "commandExists",
+      "command": "composer"
+    },
+    {
       "action": "copy",
       "from": "LICENSE.md",
       "to": "LICENSE.md",
