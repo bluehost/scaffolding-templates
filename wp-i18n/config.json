@@ -18,6 +18,10 @@
     },
     {
       "action": "runCommand",
+      "command": "composer require -d {{ project_root }} --dev wp-cli/i18n-command"
+    },
+    {
+      "action": "runCommand",
       "command": "wp {{ base_command }} make github-actions/wp-i18n"
     },
     {
