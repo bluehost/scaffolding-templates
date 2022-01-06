@@ -6,7 +6,7 @@
     },
     {
       "action": "runCommand",
-      "command": "npm install --save-dev cypress cypress-axe @testing-library/cypress"
+      "command": "npm install --save-dev cypress cypress-axe axe-core @testing-library/cypress"
     },
     {
       "action": "copy",
