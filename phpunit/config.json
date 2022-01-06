@@ -26,6 +26,10 @@
     },
     {
       "action": "runCommand",
+      "command": "composer require -d {{ project_root }} --dev yoast/phpunit-polyfills"
+    },
+    {
+      "action": "runCommand",
       "command": "wp {{ base_command }} make wp-env"
     },
     {
