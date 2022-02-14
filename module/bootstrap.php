@@ -7,7 +7,7 @@ if ( function_exists( 'add_action' ) ) {
 /**
  * Register the {{ module.name | lowercase }} module.
  */
-function  newfold_module_register_{{ module.name | snakeCase }}() {
+function newfold_module_register_{{ module.name | snakeCase }}() {
 	eig_register_module(
 		array(
 			'name'     => '{{ module.name | kebabCase }}',
