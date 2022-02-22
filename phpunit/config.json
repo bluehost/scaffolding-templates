@@ -51,7 +51,7 @@
       "file": ".wp-env.json",
       "path": "{{ project_root }}",
       "key": "env.tests.config.WP_TESTS_TITLE",
-      "value": "{{ name }}"
+      "value": "WordPress Tests"
     },
     {
       "action": "setJSONValue",
