@@ -68,11 +68,11 @@
     },
     {
       "action": "runCommand",
-      "command": "wp {{ base_command }} make phpunit --project-root={{ project_root }}/{{ module.name | kebabCase }}"
+      "command": "wp {{ base_command }} make phpunit --project-root={{ project_root }}"
     },
     {
       "action": "runCommand",
-      "command": "wp {{ base_command }} make github-actions/satis-update --project-root={{ project_root }}/{{ module.name | kebabCase }}"
+      "command": "wp {{ base_command }} make github-actions/satis-update --project-root={{ project_root }}"
     }
   ]
 }
